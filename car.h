@@ -16,8 +16,15 @@ namespace automotive {
         // who built this car
         char m_manufacturer[31]; //  '\0' is only for empty string, not any other types
     public:
-        //Car();
-        //Car(float, char[]);
+        // constructor, the default constructor, always have the same name as the class itself
+        Car();
+        // the default constructor will be added if no constructor is declared
+        // if a non-default constructor is declared, the default constructor will not be added automatically
+        Car(int, float, const char*);
+        // destructor, the default destructor, always have the same name as the class itself with ~
+        // used to deallocate dynamic memory if any is used
+        // CANNOT be overloaded
+        ~Car();
         void display() const;
         void set(int seats, float price, const char* manu);
     };
