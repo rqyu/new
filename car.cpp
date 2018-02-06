@@ -32,15 +32,22 @@ namespace automotive {
     // same as void display(const Car* this, [...])
     void Car::display() const {
         cout << "Manufacturer: ["
+        // << this->m_manufacturer    this-> shows all methods and members
              << m_manufacturer << "]" << endl;
         cout << "Price: " << m_price << endl;
         cout << "Seats: " << m_seatCnt << endl;
     }
 
     void Car::set(int seats, float price, const char *manu) {
-        m_seatCnt = seats;
-        m_price = price;
-        strcpy(m_manufacturer, manu);
+        // parameter validation
+        if (seats < 0) {
+            // create a new instance and put in current object's address
+            *this = Car();
+        } else {
+            m_seatCnt = seats;
+            m_price = price;
+            strcpy(m_manufacturer, manu);
+        }
     }
 
     // if want to use default destructor, use below line
