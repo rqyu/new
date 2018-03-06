@@ -18,8 +18,12 @@ namespace collections {
     public:
         SmartArray();
         SmartArray(float);
-        //SmartArray(const SmartArray& sA);
+
+        //these 3 are mandatory if class contains a resource
+        SmartArray(const SmartArray& source);
         ~SmartArray();
+        SmartArray& operator=(const SmartArray& source);
+
         friend std::ostream& operator<<(std::ostream&, const SmartArray&);
     };
 

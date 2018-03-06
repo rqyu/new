@@ -22,11 +22,22 @@ namespace collections
         this->m_size = 1;
     }
 
-    /*
-    SmartArray::SmartArray(const SmartArray& sA) {
-
+    SmartArray::SmartArray(const SmartArray& source) {
+        this->m_pData = nullptr;
+        *this = source;
     }
-    */
+
+    SmartArray& SmartArray::operator=(const SmartArray& source) {
+        if (this != &source) {
+            delete [] m_pData;
+            m_size = source.m_size;
+            m_pData = new float[m_size];
+            for (int i = 0; i < m_size; i++) {
+                m_pData[i] = source.m_pData[i];
+            }
+        }
+        return *this;
+    }
 
     SmartArray::~SmartArray()
     {
