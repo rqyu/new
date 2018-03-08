@@ -22,6 +22,7 @@ namespace collections
         this->m_size = 1;
     }
 
+
     SmartArray::SmartArray(const SmartArray& source) {
         this->m_pData = nullptr;
         *this = source;
@@ -38,6 +39,7 @@ namespace collections
         }
         return *this;
     }
+
 
     SmartArray::~SmartArray()
     {

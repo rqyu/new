@@ -16,6 +16,8 @@ int main()
 
     process(ar);
     cout << "Garbage?: " << ar;
+
+
     process(ar);
     cout << "Garbage?: " << ar;
 

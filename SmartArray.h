@@ -24,6 +24,11 @@ namespace collections {
         ~SmartArray();
         SmartArray& operator=(const SmartArray& source);
 
+        // prevent copy
+        // add this line, just to delete them:
+        // SmartArray(const SmartArray& source) = delete;
+        // SmartArray& operator=(const SmartArray& source) = delete;
+
         friend std::ostream& operator<<(std::ostream&, const SmartArray&);
     };
 
