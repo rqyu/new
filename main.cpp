@@ -1,36 +1,26 @@
 #include <iostream>
-#include "SmartArray.h"
+#include "Square.h"
+#include "Rectangle.h"
 
 using namespace std;
-using namespace collections;
-
-void process(SmartArray someArray)
-{
-    cout << "Process: " << someArray;
-    // building
-    // SmartArray ar = someArray;
-    // same as
-    // SmartArray ar(someArray);
-    // calls the copy constructor
-}
-
-SmartArray newProcess(SmartArray someArray) {
-    cout << "copied the parameter: " << endl;
-    SmartArray ar(someArray);
-    cout << "created the new var: " << endl;
-    return ar;
-}
+using namespace geometry;
 
 int main()
 {
 
-    SmartArray ar(12.32);
-    //ar = SmartArray(10);
-    // process(ar);
-    SmartArray arr = newProcess(ar);
-    cout << ar;
+    /*
+    Square as;
+    as.draw();
+    Square bs(5, '#');
+    bs.draw();
+    */
 
-
+    // constructor of root class is called first, all the way down to the current used class
+    // destructor goes opposite way
+    Rectangle ar;
+    ar.draw();
+    Rectangle br(4, 7, '*');
+    br.draw();
 
     return 0;
 

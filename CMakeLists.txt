@@ -3,4 +3,4 @@ project(classnotes)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(classnotes main.cpp car.cpp car.h SmartArray.cpp SmartArray.h)
+add_executable(classnotes main.cpp car.cpp car.h SmartArray.cpp SmartArray.h Square.cpp Square.h Rectangle.cpp Rectangle.h)
