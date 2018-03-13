@@ -20,6 +20,7 @@ namespace collections {
         SmartArray(float);
 
         //these 3 are mandatory if class contains a resource
+        // rule of 3: if you need to copy, you need all 3
         SmartArray(const SmartArray& source);
         ~SmartArray();
         SmartArray& operator=(const SmartArray& source);

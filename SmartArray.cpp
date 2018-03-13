@@ -24,11 +24,13 @@ namespace collections
 
 
     SmartArray::SmartArray(const SmartArray& source) {
+        cout << (void*)this << ": Creating a copy of " << (void*)&source << endl;
         this->m_pData = nullptr;
         *this = source;
     }
 
     SmartArray& SmartArray::operator=(const SmartArray& source) {
+        cout << (void*)this << ": Copying content from " << (void*)&source << endl;
         if (this != &source) {
             delete [] m_pData;
             m_size = source.m_size;
@@ -45,7 +47,6 @@ namespace collections
     {
         cout << (void*)this << " is Clearning up: " << (void*)this->m_pData << endl;
         delete[] this->m_pData;
-        cout << "Deleted: " << (void*)this->m_pData << endl;
     }
 
     ostream& operator<<(ostream& out, const SmartArray& arr)
