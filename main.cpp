@@ -1,66 +1,66 @@
 #include <iostream>
-#include "Monster.h"
-#include "Vampire.h"
+#include <fstream>
+#include <string>
 
 using namespace std;
+
+void write(ostream& out)
+{
+    out << 201 << ',' << 4.32 << ',' << "New String!" << endl;
+}
 
 int main()
 {
 
-    /*
-    GameCharacter aChar;
-    aChar.move();
+    // for text files only
+    ofstream out;
+    // open file from given file name, current folder
+    // if file is not available, ofstream.open will create the file or open the connection
+    // by default it will be opened just for writing
 
-    Monster aMon("Kevin", .2);
-    aMon.move();
+    // open or append, using bitwise or
+    //out.open("some.txt", ios_base::out | ios_base::app);
+    // or use a constructor
+    //ofstream out("some.txt", ios_base::out | ios_base::app);
 
-    Vampire aVam;
-    aVam.move();
-    */
+    // open, delete all content then write; out will only override the entered chars, if input is less than original then the extra will not be erased
+    out.open("some.txt", ios_base::out | ios_base::trunc);
 
-    // before continue, notice GameCharacter is now an abstract class, cannot be initialized
-    GameCharacter* aChar = nullptr;
-    char cType = '\0';
+    // writing into the file is the same as using cout
+    out << 10 << ',' << 654.32 << ',' << "Some String!" << endl;
+    out << "Writing stuff into the file..." << endl;
+    write(out);
+    write(out);
 
-    cout << "What character would you like[g, m, v]? " << endl;
-    cin >> cType;
+    // after finish writing into the file, close the connection
+    // file will be closed when it goes out of scope automatically
+    out.close();
 
-    switch(cType)
-    {
-        /* GameCharacter became an abstract class, cannot be initialized
-        case 'g':
-            aChar = new GameCharacter("Tom");
-            break;
-        */
-        case 'm':
-            aChar = new Monster("Ed", 0.9);
-            break;
-        default:
-            aChar = new Vampire();
-    }
+    ifstream inf;
+    inf.open("some.txt");
 
-    aChar->move();
+    int i;
+    double d;
+    char c;
+    string s;
 
-    delete aChar;
-    /*
-     * \33[im ... \33[0m
-     *
-     * case i:
-     *
-     * 1: bold
-     * 4: underline
-     * 7: background grey
-     * 30-37: colors
-     * 40-47: background in colors
-     * 90-97: light colors
-     * 100-107: background in light colors
-     * */
-    /*
-    for (int i = 1; i <= 110; i++) {
-        cout << "\33[" << i << "m" << i << "\33[0m";
-    }
-    cout << endl;
-    */
+    // once extraction fails, all following extraction will stop to work
+    // call cin.clear() after fail state, cin stays at the position causing problem
+    // cin.ignore() escapes the next char.
+    // call clear first, then do other stuff
+    // cin.good() check if next operator has possibility of success.
+    inf >> i >> c >> d >> c;
+
+    char ca[32];
+    // read also reads \n, the new line character, watch out
+    inf.read(ca, 10);
+
+    string ns;
+
+    cout << i << c << d << c << ca << endl;
+
+    inf.close();
+
     return 0;
 
 }
