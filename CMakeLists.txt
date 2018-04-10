@@ -3,4 +3,4 @@ project(classnotes)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(classnotes main.cpp )
+add_executable(classnotes main.cpp Base.cpp Base.h Derived.cpp Derived.h)
